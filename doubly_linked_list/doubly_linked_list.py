@@ -70,9 +70,13 @@ class DoublyLinkedList:
         self.tail = self.tail.next
 
     def remove_from_head(self):
+        if(self.head is None):
+            return None
         head_value = self.head.value
         old_head = self.head
         self.head = self.head.next
+        if(self.head is None):
+            self.tail = None
         old_head.delete()
         return head_value
 
@@ -80,6 +84,8 @@ class DoublyLinkedList:
         tail_value = self.tail.value
         old_tail = self.tail
         self.tail = self.tail.prev
+        if(self.tail is None):
+            self.head = None
         old_tail.delete()
         return tail_value
 
